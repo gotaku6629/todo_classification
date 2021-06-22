@@ -10,11 +10,9 @@ button#submit, button#priority, button#remove {
 }
 button#priority { background-color: olivedrab; }
 button#remove { background-color: firebrick; }
+
+/*表*/
 table {
-  margin-top: 2rem;
-  border: solid 2px lightgray;
-  border-collapse:separate;
-  border-spacing: 5px;
   width: 100%;
 }
 table th,table td{
@@ -23,25 +21,20 @@ table th,table td{
     padding: 10px 0;
 }
 
-table th{
+table table th{
 background-color: #c79852;
 color: white;
 border:solid 1px #927141;
 }
 
-table td{
+table table td{
 background-color: #e4d4bc;
 border:solid 1px #af9d85;
 }
-th, td {
-  border: solid 1px lightgray;
-  border-collapse: collapse;
-}
-th {
-  background-color: beige;
-  padding: 0 0.5rem 0;
-}
+
 th#todoLabel { width: 200px; }
 th#dateLabel { width: 100px; }
 td { text-align: center; }
 td input[type='checkbox'] { margin: 0; }
+
+th.tableWidth { width: 100px; }
