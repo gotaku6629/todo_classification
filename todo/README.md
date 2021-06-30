@@ -17,3 +17,8 @@ localhost:8001/list
 ```
 docker-compose down
 ```
+
+コマンドの実行の仕方
+```
+docker-compose run --rm web [コマンド]
+```
