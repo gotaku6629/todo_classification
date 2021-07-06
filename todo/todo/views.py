@@ -36,14 +36,17 @@ class TodoCreate(CreateView):
     fields = ('title', 'memo', 'priority', 'duedate')
     success_url = reverse_lazy('list')
 
-    def form_valid(self, form):
 
+    def form_valid(self, form):
+        # value_list = self.model.objects.values_list('title')
+        # print(form.instance.title)
         # https://stackoverflow.com/questions/51905712/how-to-get-the-value-of-a-django-model-field-object
-        obj = self.model.objects.first()
-        field_object = self.model._meta.get_field('title')
-        field_value = getattr(obj, field_object.attname)
+        # obj = self.model.objects.first()
+        # obj = self.model.objects.get(id=1).field
+        # field_object = self.model._meta.get_field('title')
+        # field_value = getattr(obj, field_object.attname)
        
-        category = classify(field_value)
+        category = classify(form.instance.title)
 
         # https://stackoverflow.com/questions/21652073/django-how-to-set-a-hidden-field-on-a-generic-create-view
         form.instance.category = category
