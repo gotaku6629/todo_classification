@@ -1,12 +1,21 @@
 import numpy as np
 import gensim
 from janome.tokenizer import Tokenizer
+import requests
 # from nltk.corpus import stopwords
 import os
-# os.system('ls')
-# os.system('ls ../')
 
-MODEL = gensim.models.KeyedVectors.load_word2vec_format('https://github.com/gotaku6629/todo_classification/releases/download/v0.1/entity_vector.model.bin', binary=True)
+pretrained_dir = '../entity_vector/'
+file_name = 'entity_vector.model.bin'
+if not os.path.exists(pretrained_dir):
+    os.mkdir(pretrained_dir)
+    if not os.path.exists(pretrained_dir + file_name):
+        response = requests.get('https://github.com/gotaku6629/todo_classification/releases/download/v0.1/entity_vector.model.bin')
+        with open(pretrained_dir + file_name, 'wb') as f:
+            f.write(response.content)
+
+
+MODEL = gensim.models.KeyedVectors.load_word2vec_format(pretrained_dir + file_name, binary=True)
 CATEGORY_LIST = ('勉強', '授業', '研究', '遊び', '旅行', '就活')
 TOKENIZER = Tokenizer()
 # STOPWORDS = stopwords.words('japanese')
