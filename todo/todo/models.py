@@ -6,7 +6,7 @@ from django.db import models
 PRIORITY = (('danger', 'high'), ('info', 'normal'), ('success', 'low'))
 class TodoModel(models.Model):
     title = models.CharField(max_length=100)
-    memo = models.TextField()
+    memo = models.TextField(blank=True, null=True,)
     priority = models.CharField(
       max_length = 50,
       choices = PRIORITY
@@ -14,6 +14,8 @@ class TodoModel(models.Model):
     duedate = models.DateField()
     
     category = models.CharField(max_length=50)
+
+    color = models.CharField(max_length=20)
 
     def __str__(self):
       return self.title

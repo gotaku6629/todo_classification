@@ -18,7 +18,7 @@
 
     {% for item in object_list %}
 
-    <div class="alert alert-{{ item.priority }}" role="alert">
+    <div class="alert alert-{{ item.color }}" role="alert">
         <p>{{ item.title }}　期日：{{ item.duedate}}   カテゴリー:{{ item.category}}</p>
         <a href="{% url 'update' item.pk %}" class="btn btn-info" tabindex="-1" role="button"
             aria-disabled="true">編集</a>
