@@ -17,6 +17,7 @@ if not os.path.exists(pretrained_dir):
 
 MODEL = gensim.models.KeyedVectors.load_word2vec_format(pretrained_dir + file_name, binary=True)
 CATEGORY_LIST = ('勉強', '授業', '研究', '遊び', '旅行', '就活')
+COLOR_LIST = ('danger', 'info', 'success', 'warning', 'dark', 'secondary')
 TOKENIZER = Tokenizer()
 # STOPWORDS = stopwords.words('japanese')
 
@@ -31,8 +32,10 @@ def classify(text):
     similarities = np.array([[MODEL.similarity(text, c) for c in CATEGORY_LIST] for text in texts])
     print('similarites: ', similarities)
     category = CATEGORY_LIST[np.argmax(np.max(similarities, axis=0))]
+    category_color = COLOR_LIST[np.argmax(np.max(similarities, axis=0))]
+    print('color', category_color)
     
-    return category
+    return category, category_color
     # except KeyError:
     #     return 'その他'
 
