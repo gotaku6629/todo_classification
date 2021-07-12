@@ -11,18 +11,18 @@
 
   <h2>ログイン、もしくは新規作成してください</h2>
   <div>
-    <form name="login-form">
-      <label for="user-name">
+    <form name="loginForm">
+      <label for="user-name"></label>
         ユーザー名：
-        <input type="id" name="id" placeholder="ID" id="user-name">
+        <input type="text" name="text1" placeholder="ID" id="user-name" onKeyDown="return next_text(1);">
       </label>
       <br>
       <label for="password">
         パスワード：
-        <input type="password" name="password" placeholder="password" id="password">
+        <input type="password" name="text1" placeholder="password" id="password" onKeyDown="return next_text(2);">
       </label>
       <br>
-      <button type="button" id="login-button">
+      <button type="button" id="login-button" name="text1">
         ログイン
       </button>
       <br><br>
@@ -35,6 +35,7 @@
 
 
   <script src="../script/login.js"></script>
+  
 </body>
 
 </html>
