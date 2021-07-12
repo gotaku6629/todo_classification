@@ -74,3 +74,15 @@ function postData(url = '', data = {}) {
   console.log('hoge');
   // return response.json(); // レスポンスの JSON を解析
 }
+
+function next_text( idx )
+    {
+        if( window.event.keyCode == 13 ){        // 13は0x0d(CRキー)
+            // 次のテキストボックスへ飛ばす処理をここにかく
+            
+            document.loginForm.text1[ idx ].focus() ; 
+            
+            return false ;
+        }
+        return true ;
+    }
