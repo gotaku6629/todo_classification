@@ -1,7 +1,9 @@
+# アプリを作成するサービスを記述
+
 version: '3'
 
 services:
-   web:
+   web:  # Webサーバー関連
        build: .
        command: python3 manage.py runserver 0.0.0.0:8001
        volumes:
@@ -10,7 +12,7 @@ services:
            - "8001:8001"
        depends_on:
            - db
-   db:
+   db:   # データベース関連
        image: postgres
        ports: 
            - "5432"
