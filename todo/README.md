@@ -22,3 +22,8 @@ docker-compose down
 ```
 docker-compose run --rm web [コマンド]
 ```
+
+dockerの動作確認
+```
+docker ps -a
+```
