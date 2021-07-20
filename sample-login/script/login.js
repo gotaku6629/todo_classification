@@ -11,14 +11,15 @@ loginButton.onclick = function () {
     const hoge = postData(url, sendData);
     console.log(hoge);
     alert('login success');
-    window.location.href = '../page/todo.html';
+    // window.location.href = '../page/todo.html';
+    window.location.href = 'http://localhost:8001/list';
   } else {
     alert('faild login');
   }
 };
 
 const newAccountButton = document.getElementById('new-account-button');
-newAccountButton.onclick = function() {
+newAccountButton.onclick = function () {
   const input = getIdAndPass();
   alert('新しいアカウントを作ります');
 };
@@ -32,7 +33,7 @@ function getIdAndPass() {
 
 function checkAuth(id, pass) {
   // server API?
-  return id.toString().length>= 4 && pass.toString().length >= 8; // test
+  return id.toString().length >= 4 && pass.toString().length >= 8; // test
 }
 
 function doPost(url, data) {
@@ -75,14 +76,17 @@ function postData(url = '', data = {}) {
   // return response.json(); // レスポンスの JSON を解析
 }
 
-function next_text( idx )
-    {
-        if( window.event.keyCode == 13 ){        // 13は0x0d(CRキー)
-            // 次のテキストボックスへ飛ばす処理をここにかく
-            
-            document.loginForm.text1[ idx ].focus() ; 
-            
-            return false ;
-        }
-        return true ;
+function next_text(idx) {
+  if (window.event.keyCode == 13) {        // 13は0x0d(CRキー)
+    // 次のテキストボックスへ飛ばす処理をここにかく
+
+    if (idx == 2) {
+      loginButton.onclick();
     }
+
+    document.loginForm.text1[idx].focus();
+
+    return false;
+  }
+  return true;
+}
