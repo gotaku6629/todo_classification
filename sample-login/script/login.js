@@ -1,3 +1,5 @@
+document.getElementById('user-name').focus();
+
 const loginButton = document.getElementById('login-button');
 loginButton.onclick = function () {
   const input = getIdAndPass();
@@ -13,6 +15,7 @@ loginButton.onclick = function () {
     alert('login success');
     // window.location.href = '../page/todo.html';
     window.location.href = 'http://localhost:8001/list';
+    
   } else {
     alert('faild login');
   }
