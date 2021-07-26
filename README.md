@@ -5,7 +5,7 @@
 
 ## ネットワーク全体
 <p align="center">
-<img src='imgs/.png' width="1000px"/>
+<img src='imgs/architecture.png' width="1000px"/>
    
    
 ## GitHubの使用方法まとめ
